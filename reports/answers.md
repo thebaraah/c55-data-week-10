@@ -16,9 +16,13 @@ FROM dev_baraah.fct_daily_borough_stats
 GROUP BY pickup_borough
 ORDER BY total_revenue DESC
 LIMIT 1;
-**Result:** TODO
+**Result:** 
+ pickup_borough | total_revenue 
+----------------+---------------
+ Manhattan      |     493955.62
+(1 row)
 
-**Interpretation:** The borough with the highest total fare revenue across the loaded dataset was
+**Interpretation:** The borough with the highest total fare revenue across the loaded dataset was Manhattan $493955.62.
 
 ---
 
@@ -36,9 +40,13 @@ FROM dev_baraah.fct_daily_borough_stats
 GROUP BY pickup_date
 ORDER BY total_trips DESC
 LIMIT 1;
-**Result:** TODO
+**Result:** 
+ pickup_date | total_trips 
+-------------+-------------
+ 2024-01-17  |        2221
+(1 row)
 
-**Interpretation:** The busiest day in the dataset was
+**Interpretation:** The busiest day in the dataset was 2024-01-17 with 2221 trips across all boroughs.
 
 ---
 
@@ -57,9 +65,17 @@ FROM dev_baraah.fct_daily_borough_stats
 ORDER BY avg_tip_pct DESC
 LIMIT 5;
 
-**Result:** TODO
+**Result:** 
+ pickup_borough | pickup_date |    avg_tip_pct     
+----------------+-------------+--------------------
+ Unknown        | 2024-01-30  |           2.500125
+ Unknown        | 2024-01-07  | 1.3396296296296295
+ Unknown        | 2024-01-11  | 1.1044956140350877
+ Unknown        | 2024-01-16  |                  1
+ Unknown        | 2024-01-18  |  0.611111111111111
+(5 rows)
 
-**Interpretation:** The highest average tip percentage occurred in
+**Interpretation:** The highest average tip percentage occurred in Unknown on 2024-01-30 . 
 
 ---
 
@@ -78,5 +94,10 @@ WHERE pickup_borough IN ('Manhattan', 'Brooklyn')
 GROUP BY pickup_borough;
 
 **Result:** TODO
+ pickup_borough | median_trip_count 
+----------------+-------------------
+ Brooklyn       |               248
+ Manhattan      |            1169.5
+(2 rows)
 
-**Interpretation:** TODO (one sentence on the ratio)
+**Interpretation:** Manhattan had a higher median daily trip count than Brooklyn. 
